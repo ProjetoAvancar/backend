@@ -23,12 +23,15 @@ public class Produto {
 	public Long id;
 	
 	@NotNull
-	@Size(min = 10, max = 100, message="O campo deve ter no mínimo 10 caracteres, e no máximo 100 caracteres")
+	@Size(min = 10, max = 200, message="O campo deve ter no mínimo 10 caracteres, e no máximo 200 caracteres")
 	private String nome;
 	
 	@NotNull
 	@Column(precision = 6, scale = 2)
 	public BigDecimal valor;
+	
+	@NotNull
+	private String foto;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
@@ -62,12 +65,28 @@ public class Produto {
 		this.valor = valor;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public Categoria getCategoria() {
 		return categoria;
 	}
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 }

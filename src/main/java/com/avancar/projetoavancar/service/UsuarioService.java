@@ -44,7 +44,11 @@ public class UsuarioService {
 			if (compararSenhas(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
 				usuarioLogin.get().setId(usuario.get().getId());
 				usuarioLogin.get().setNome(usuario.get().getNome());
-				usuarioLogin.get().setEndereco(usuario.get().getEndereco());
+				usuarioLogin.get().setRua(usuario.get().getRua());
+				usuarioLogin.get().setNumero(usuario.get().getNumero());
+				usuarioLogin.get().setBairro(usuario.get().getBairro());
+				usuarioLogin.get().setCep(usuario.get().getCep());
+				usuarioLogin.get().setTipo(usuario.get().getTipo());
 				usuarioLogin.get()
 						.setToken(gerarBasicToken(usuarioLogin.get().getUsuario(), usuarioLogin.get().getSenha()));
 				usuarioLogin.get().setSenha(usuario.get().getSenha());

@@ -28,7 +28,7 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoRepository repository;
 	
-	@GetMapping("/all")
+	@GetMapping
 	public ResponseEntity<List<Produto>> GetAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
@@ -45,12 +45,12 @@ public class ProdutoController {
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Produto> put(@RequestBody Produto produto) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(produto));
 	}

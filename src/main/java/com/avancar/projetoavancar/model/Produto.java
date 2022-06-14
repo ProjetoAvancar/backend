@@ -23,12 +23,17 @@ public class Produto {
 	public Long id;
 	
 	@NotNull
-	@Size(min = 10, max = 200, message="O campo deve ter no mínimo 10 caracteres, e no máximo 200 caracteres")
 	private String nome;
+	
+	@Size(min=10, max=10000, message="O campo deve ter no mínimo 10 caracteres e no máximo 10.000 caracteres")
+	private String descricao;
 	
 	@NotNull
 	@Column(precision = 6, scale = 2)
 	public BigDecimal valor;
+	
+	@Column(precision = 6, scale = 2)
+	public BigDecimal desconto;
 	
 	@NotNull
 	private String foto;
@@ -57,12 +62,28 @@ public class Produto {
 		this.nome = nome;
 	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 	public BigDecimal getValor() {
 		return valor;
 	}
 
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
+	}
+
+	public BigDecimal getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(BigDecimal desconto) {
+		this.desconto = desconto;
 	}
 
 	public String getFoto() {

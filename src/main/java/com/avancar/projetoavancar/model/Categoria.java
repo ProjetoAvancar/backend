@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,7 +22,6 @@ public class Categoria {
 	public Long id;
 	
 	@NotNull
-	@Size(min = 10, max = 100, message="O campo deve ter no mínimo 10 caracteres, e no máximo 100 caracteres")
 	private String nome;
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
